@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36e9dadc-5984-4c66-9137-bd92116aed48" name="Default Changelist" comment="test">
+    <list default="true" id="36e9dadc-5984-4c66-9137-bd92116aed48" name="Default Changelist" comment="register">
+      <change afterPath="$PROJECT_DIR$/rescources/css/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rescources/html/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rescources/img/register/icon_GPS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rescources/img/register/icon_namecard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rescources/img/register/icon_phone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rescources/img/register/icon_signal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rescources/img/register/icon_signal_fill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rescources/img/register/locking.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rescources/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rescources/img/1551168600404_mh1551168796526.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rescources/img/t0119ff9366011913b1.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,13 +26,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rescources/css/register.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rescources/html/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -29,7 +56,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="csj" />
+        <entry key="$PROJECT_DIR$/.." value="wzy" />
       </map>
     </option>
   </component>
@@ -39,14 +66,16 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/html/index.html" />
         <option value="$PROJECT_DIR$/rescources/css/index.css" />
+        <option value="$PROJECT_DIR$/html/inde.html" />
+        <option value="$PROJECT_DIR$/html/register.html" />
+        <option value="$PROJECT_DIR$/rescources/html/register.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="9" />
-    <option name="y" value="19" />
-    <option name="width" value="1347" />
-    <option name="height" value="689" />
+    <option name="x" value="-9" />
+    <option name="width" value="1770" />
+    <option name="height" value="966" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -56,18 +85,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="htmlAccount" type="b2602c69:ProjectViewProjectNode" />
               <item name="htmlAccount" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="htmlAccount" type="b2602c69:ProjectViewProjectNode" />
-              <item name="htmlAccount" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="htmlAccount" type="b2602c69:ProjectViewProjectNode" />
@@ -80,24 +103,38 @@
               <item name="rescources" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="htmlAccount" type="b2602c69:ProjectViewProjectNode" />
+              <item name="htmlAccount" type="462c0819:PsiDirectoryNode" />
+              <item name="rescources" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/实习/专业实习1/连锁酒店管理系统/WCJ" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MyGit\learningCode\individual-account\htmlAccount\css" />
+      <recent name="E:\MyGit\learningCode\individual-account\htmlAccount\rescources\img" />
+      <recent name="E:\MyGit\learningCode\individual-account\htmlAccount\rescources\css" />
       <recent name="D:\hongchen\ideallen\individual-account\htmlAccount\rescources\img" />
       <recent name="D:\hongchen\ideallen\individual-account\htmlAccount\rescources\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\MyGit\learningCode\individual-account\htmlAccount\rescources" />
+      <recent name="E:\MyGit\learningCode\individual-account\htmlAccount\rescources\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -111,6 +148,16 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="register.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/htmlAccount/html/register.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.register.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -126,18 +173,31 @@
       <workItem from="1553832702708" duration="366000" />
       <workItem from="1553834075702" duration="666000" />
       <workItem from="1553842978145" duration="1776000" />
+      <workItem from="1553849082871" duration="220000" />
+      <workItem from="1553992194670" duration="114000" />
+      <workItem from="1554000052010" duration="1162000" />
     </task>
+    <task id="LOCAL-00001" summary="pic1">
+      <created>1553845877103</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553845877103</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4057000" />
+    <option name="totallyTimeSpent" value="7669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17077045" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" sideWeight="0.49960285" visible="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -147,8 +207,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.80106574" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.22202487" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50039715" side_tool="true" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -157,9 +217,51 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="pic1" />
+    <MESSAGE value="register" />
+    <option name="LAST_COMMIT_MESSAGE" value="register" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/rescources/js/jquery-2.1.0.min.js">
@@ -172,17 +274,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rescources/css/index.css">
+    <entry file="file://$PROJECT_DIR$/rescources/css/index.css" />
+    <entry file="file://$PROJECT_DIR$/html/index.html" />
+    <entry file="file://$PROJECT_DIR$/rescources/css/register_style.css" />
+    <entry file="file://$PROJECT_DIR$/html/inde.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        <state relative-caret-position="19">
+          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/index.html">
+    <entry file="file://$PROJECT_DIR$/rescources/html/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="57">
+          <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
         </state>
       </provider>
     </entry>
