@@ -1,0 +1,44 @@
+body,div,p{
+	margin: 0;
+	padding: 0;
+}
+.qukuan_head{
+	width: 100%;
+	height: 80px;
+	/*border: 1px solid black;*/
+}
+.qukuan_head h2{
+	font-size: 30px;
+	font-family: "华文楷体";
+	font-weight: bold;
+	margin-top: 10px;
+	text-indent: 1em;
+}
+
+/*----------------------------------*/
+
+.qukuan_content_bg{
+	width: 100%;
+	height: 500px;
+	/*border: 1px solid black;*/
+}
+.qukuan_content{
+	width: 360px;
+	height: 400px;
+	margin: auto;
+	/*border: 1px solid black;*/
+}
+.qukuan_content input{
+	width: 220px;
+	height: 30px;
+	margin: 10px;
+}
+.qukuan_content .btn{
+	width: 100px;
+	height: 35px;
+	margin: 10px;
+	color: white;
+	background: #FF0033;
+	font-size: 20px;
+	border: 0;
+}

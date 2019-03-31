@@ -1,0 +1,20 @@
+body,div{
+	margin: 0px;
+	padding: 0px;
+}
+.zixun_head{
+	width: 600px;
+	height: 60px;
+	margin: auto;
+	border: 1px solid black;
+}
+.zixun_head a{
+	text-decoration: none;
+	
+}
+.zixun_content{
+	width: 600px;
+	height: 500px;
+	margin: auto;
+	border: 1px solid black;
+}
