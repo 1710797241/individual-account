@@ -2,9 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <script src="../rescources/js/jquery-2.1.0.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../rescources/css/Base.css">
+    <link rel="stylesheet" href="../rescources/css/OtherAccount.css" />
+    <script src="../rescources/js/OtherAccount.js" type="text/javascript"></script>
+
 </head>
 <body>
-$END$
+
+<div class="wholeMain">
+    <div class="main">
+        <form action="">
+            <div><span id="addAccount">添加账号</span><span><label for="serachParam">账号：</label><input id="serachParam" name="serachParam" type="text"><button id="search" type="button">查询</button></span></div>
+            <div >
+                <table class="tb_account" width="100%">
+                    <tr>
+                        <th>序号</th>
+                        <th>账号</th>
+                        <th>密码</th>
+                        <th>账户余额</th>
+                        <th>是否是管理员</th>
+                        <th>是否被加锁</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="pages">
+                <ul>
+                    <li>共xx条记录</li>
+                    <li><a href="#">首页</a></li>
+                    <li></li>
+                    <li><a href="#">上一页</a></li>
+                    <li></li>
+                    <li><a href="#">下一页</a></li>
+                    <li></li>
+                    <li><a href="#">当前第1页/共xx页</a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

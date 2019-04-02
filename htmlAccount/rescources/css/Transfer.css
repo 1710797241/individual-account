@@ -1,0 +1,26 @@
+#form{
+    width: 500px;
+    margin: auto auto;
+    color: black;
+}
+#cancel{
+    display: inline-block;
+}
+#cancel{
+    text-align: center;
+    line-height: 30px;
+    width: 50px;
+    height: 30px;
+    color: white;
+    background-color: #FF0033;
+    margin-left: 98px;
+}
+#form input{
+    border: 1px solid #C5C5C5;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+#btn{
+    margin-left: 112px;
+}

@@ -1,0 +1,17 @@
+.fixright{
+    float: right;
+}
+#change{
+    color: #000;
+}
+#change a{
+    display: inline-block;
+    background-color: #FF0033;
+    width: 45px;
+    height: 20px;
+    color: white;
+    text-align: center;
+}
+.changeItem{
+    margin-bottom: 5px;
+}
