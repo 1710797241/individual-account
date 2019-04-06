@@ -7,15 +7,87 @@
     <link rel="stylesheet" href="../rescources/css/Base.css">
     <link rel="stylesheet" href="../rescources/css/OtherAccount.css" />
     <script src="../rescources/js/OtherAccount.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#addAccount").click(function () {
+                $("#mask").css({
+                    "position":"absolute",
+                    "z-index":"100",
 
+                })
+                $("#addBox").css({
+                    "position":"absolute",
+                    "left":"25%",
+                    "top":30,
+                    "display":"block",
+                    "z-index":"200",
+
+                })
+                $("#close_box").click(function () {
+                    $("#mask").css({
+                        "display":"none"
+
+                    })
+                    $("#addBox").css({
+                        "display":"none"
+
+                    })
+                })
+
+            });
+        })
+    </script>
 </head>
 <body>
+<div class="wholeMain" id="mask"></div>
+<div id="addBox" style="display: none;background-color: white; border: 1px solid blueviolet; width: 600px;height: 500px;">
+    <div>
+        <span id="close_box" style="" >x</span>
+    </div>
+    <div id="form_Main">
+        <form action="192.138.190.1">
+            <table >
+                <tr>
+                    <td> 账号所属人:</td>
+                    <td>
+                        <select id="userIdentity" name="useIdentity">
+                            <option>请选择</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 账户号：</td>
+                    <td> <input type="text" name="accountName" /></td>
+                </tr>
+                <tr>
+                    <td> 密码：</td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+                <tr>
+                    <td> 确认密码：</td>
+                    <td> <input type="password" name="repassword" /></td>
+                </tr>
+                <tr>
+                    <td>是否为管理员：</td>
+                    <td><input type="radio" name="isAdmin" id="" checked="checked" value="yes">是
+                        <input type="radio" name="isAdmin" value="no" >否</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="添加"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
 
 <div class="wholeMain">
     <div class="main">
-        <form action="">
-            <div><span id="addAccount">添加账号</span><span><label for="serachParam">账号：</label><input id="serachParam" name="serachParam" type="text"><button id="search" type="button">查询</button></span></div>
-            <div >
+        <form action="192.166.21.2">
+            <div><button type="button" id="addAccount">添加账号</button><span><label for="serachParam">账号：</label><input id="serachParam" name="serachParam" type="text"><button id="search" type="button">查询</button></span></div>
+
+            <div style="margin-top: 10px;">
                 <table class="tb_account" width="100%">
                     <tr>
                         <th>序号</th>
@@ -24,7 +96,7 @@
                         <th>账户余额</th>
                         <th>是否是管理员</th>
                         <th>是否被加锁</th>
-                        <th>操作</th>
+                        <th colspan="2">操作</th>
                     </tr>
                     <tr>
                         <td>1</td>
@@ -33,7 +105,9 @@
                         <td>1</td>
                         <td>1</td>
                         <td>1</td>
-                        <td>1</td>
+                        <td><span class="modifyBtn">修改</span></td>
+                        <td><span class="rmBtn">注销</span></td>
+
                     </tr>
                 </table>
             </div>

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.entity.User;
+import com.models.entity.User;
 
 public class UserDto {
 	

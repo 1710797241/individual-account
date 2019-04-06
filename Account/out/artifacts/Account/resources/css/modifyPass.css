@@ -1,0 +1,14 @@
+body{
+    color: grey;
+font-size: 16px;
+}
+input[type="password"]{
+    border: 1px solid #C5C5C5;
+    height: 30px;
+}
+input[type="submit"]{
+    width: 254px;
+    height: 36px;
+    color: white;
+    background-color: #FF0033;
+}
