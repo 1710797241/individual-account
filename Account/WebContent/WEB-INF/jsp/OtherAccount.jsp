@@ -57,7 +57,10 @@
                 }
             })
             
-
+            var addRet = "${addRet}";
+            if(addRet !=""){
+                alert(addRet);
+            }
         })
     </script>
 </head>
@@ -68,7 +71,7 @@
         <span id="close_box" style="" >x</span>
     </div>
     <div id="form_Main">
-        <form action="otherAccountSearch.do" method="">
+        <form action="otherAccountAdd.do" method="post">
             <table >
                 <tr>
                     <td> 账号所属人:</td>
@@ -80,7 +83,7 @@
                             	<option id="${status.index}" value="${user.user_identity }">${user.user_identity}</option>
                             </c:forEach>
                         </select>
-                        <select style="display: none" disabled="disabled" id="user_name" name="user_name">
+                        <select style="display: none" disabled="disabled" >
                         <c:forEach items="${userList}" var="user" varStatus="status">
 
                             	<option  value="${user.user_name }">${user.user_name}</option>
@@ -90,25 +93,29 @@
                 </tr>
                 <tr>
                     <td> 账户号：</td>
-                    <td> <input type="text" name="accountName" /></td>
+                    <td> <input type="text" name="account_name" /></td>
                 </tr>
                 <tr>
                     <td> 密码：</td>
-                    <td><input type="password" name="password" /></td>
+                    <td><input type="password" name="account_password" /></td>
+                </tr>
+                <tr>
+                    <td> 交易密码：</td>
+                    <td><input type="password" name="trade_password" /></td>
                 </tr>
                 <tr>
                 <td>是否为管理员：</td>
-                <td><input type="radio" name="isAdmin" id="" checked="checked" value="yes">是
-                    <input type="radio" name="isAdmin" value="no" >否</td>
+                <td><input type="radio" name="is_admin" id="" checked="checked" value="yes">是
+                    <input type="radio" name="is_admin" value="no" >否</td>
             </tr>
                 <tr>
                     <td>是否被加锁：</td>
-                    <td><input type="radio" name="isLock" id="" checked="checked" value="yes">是
-                        <input type="radio" name="isLock" value="no" >否</td>
+                    <td><input type="radio" name="delete_status" id="" checked="checked" value="yes">是
+                        <input type="radio" name="delete_status" value="no" >否</td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="添加"/>
+                        <input type="submit" style="cursor: pointer;display: inline-block;width: 100px;background-color: #FF0033;color: white;" value="添加"/>
                     </td>
                 </tr>
             </table>
@@ -143,7 +150,6 @@
                         <th>账号积分</th>
                         <th>户主</th>
                         <th>是否是管理员</th>
-                        <th>是否被加锁</th>
                         <th colspan="2">操作</th>
                     </tr>
                    	<c:forEach items="${pageInfo.list }" var="account" varStatus="status" >
@@ -154,9 +160,8 @@
 	                        <td>${account.account_score}</td>
 	                        <td>${account.user_identity}</td>
 	                        <td>${account.is_admin}</td>
-	                        <td>${account.delete_status}</td>
-	                        <td><span class="modifyBtn">修改</span></td>
-	                        <td><span class="rmBtn">注销</span></td>
+	                        <td><span class="modifyBtn"><a href="otherAccountShowBeforeModify.do?account_code=${account.account_code}">修改</a> </span></td>
+                             <td><span class="rmBtn"><a href="otherAccountDel.do?account_code=${account.account_code}">注销</a></span></td>
 
                    		 </tr>
                    	</c:forEach>

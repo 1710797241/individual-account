@@ -5,34 +5,90 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.models.dao.OtherAccountDao">
 	<select id="selectAll" resultType="com.models.entity.Account">
-		select account_name,account_password, account_balance,account_score,user_identity,is_admin,delete_status
+		select account_code ,account_name,account_password, account_balance,account_score,user_identity,is_admin,delete_status
 		from account
 	</select>
 	<select id="selectByMap" parameterType="java.util.Map" resultType="com.models.entity.Account">
-		select account_name,account_password, account_balance,account_score,user_identity,is_admin,delete_status
+	select account_name,account_password, account_balance,account_score,user_identity,is_admin,delete_status
+	from account
+
+	<where>
+
+		delete_status="no"
+		<if test="account != null and account != ''">
+			and account_name like "%"#{account}"%"
+		</if>
+		<if test="usercode != null and usercode != ''">
+			and user_identity like "%"#{usercode}"%"
+		</if>
+	</where>
+
+</select>
+	<select id="selectAccountByCode" parameterType="java.lang.String" resultType="com.models.entity.Account">
+		select account_code,account_name,account_password, account_balance,account_score,user_identity,is_admin,delete_status
 		from account
 
 		<where>
 
-		delete_status="no"
-			<if test="account != null and account != ''">
-				and account_name like "%"#{account}"%"
-			</if>
-			<if test="usercode != null and usercode != ''">
-				and user_identity like "%"#{usercode}"%"
+			delete_status="no"
+			<if test=" account_code!= null and account_code != ''">
+				and account_code = #{account_code}
 			</if>
 		</where>
 
 	</select>
-	<insert id="insertMany" parameterType="com.dto.UserDto">
-		insert into user1
-		(name,email,phone)
-		values
-		<foreach collection="userList" item="user">
-			(#{user.name},#{user.email},#{user.phone})
-		</foreach>
-	</insert>
+	<select id="checkBeforeInsert" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select
+		count(1)
+		from account
+		where account_name = #{account_name}
 
+
+	</select>
+	<insert id="insertAccount" parameterType="com.models.entity.Account">
+		insert into account
+		(account_code,
+		account_name,
+		account_password,
+		trade_password,
+		account_balance,
+		account_score,
+		user_identity,
+		is_admin,
+		delete_status)
+		values
+			(
+			#{account_code},
+			#{account_name},
+			#{account_password},
+			#{trade_password},
+			#{account_balance},
+			#{account_score},
+			#{user_identity},
+			#{is_admin},
+			#{delete_status}
+			)
+	</insert>
+	<update id="modifyAccountByCode" parameterType="com.models.entity.Account" >
+		update account
+		set
+		<trim suffixOverrides="，">
+			<if test="account_name != null and account_name !=''">
+				account_name = #{account_name},
+			</if>
+			<if test="account_password != null and account_password !=''">
+				account_password = #{account_password},
+			</if>
+			<if test="trade_password != null and trade_password !=''">
+				account_name = #{account_name},
+			</if>
+			<if test="is_admin != null and is_admin !=''">
+				account_name = #{account_name},
+			</if>
+
+		</trim>
+		where account_code =  #{account_code}
+	</update>
 	<update id="deleteAccount" parameterType="com.models.entity.Account">
 		update account
 		set delete_status = "yes"

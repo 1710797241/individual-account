@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.models.dao.AccountDao">
+
+	<!--校验交易密码-->
+	<select id="checkTradePass" parameterType="com.models.entity.Account" resultType="java.lang.Integer">
+		select count(1)
+		from account
+		where account_name=#{account_name} and trade_password=#{trade_password}
+	</select>
+	<!--修改转入账户金额-->
+	<update id="modifyInAccount" parameterType="com.models.entity.Transfer">
+		UPDATE transfer
+		set
+		<if test="account_balance != null and account_balance !=''">
+			account_balance =(select account_balance from
+			(select account_balance from account where account_name=#{account_name})
+			  as acc_bal)+#{account_balance}
+
+		</if>
+
+	</update>
+
+	<!--修改转出账户金额-->
+	<update id="modifyOutAccount" parameterType="com.models.entity.Transfer">
+		UPDATE transfer
+		set
+		<if test="account_balance != null and account_balance !=''">
+			account_balance =(select account_balance from
+			(select account_balance from account where account_name=#{account_name})
+			as acc_bal)-#{account_balance}
+
+		</if>
+
+	</update>
+	<!--添加转账记录-->
+	<insert id="inserTransfer" parameterType="com.models.entity.Transfer">
+		insert into transfer
+		(
+	transfer_code,
+	transfer_site,
+	the_other_account_code,
+	type,
+	fund_flow,
+	account_code,
+	tranfer_amount,
+	transfer_time,
+	delete_status,
+		)
+		values
+		(#{transfer_code},#{transfer_site},#{the_other_account_code},#{type},#{fund_flow}
+		,#{account_code},#{tranfer_amount},#{transfer_time},#{delete_status}
+
+
+		)
+	</insert>
+<!--查询转账记录-->
+	<select id="selectTransfer" resultType="com.models.entity.Transfer" parameterType="java.util.Map">
+		select
+		transfer_code,
+	transfer_site,
+	the_other_account_code,
+	type,
+	fund_flow,
+	account_code,
+	tranfer_amount,
+	transfer_time,
+	delete_status,
+	from transfer
+	</select>
+
+	<select id="selectMaxCode" parameterType="java.lang.String" resultType="java.lang.String">
+ 		select max(transfer_code)
+ 		from transfer
+ 		where
+ 		transfer_code like "%"#{transfer_code}"%"
+
+ </select>
+</mapper>

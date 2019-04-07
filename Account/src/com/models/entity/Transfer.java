@@ -12,9 +12,9 @@ public class Transfer {
 
     private String the_other_account_code;
 
-    private String type;
+    private String type="trasfer";
 
-    private String fund_flow;
+    private String fund_flow="pay";
 
     private String account_code;
 
@@ -22,7 +22,7 @@ public class Transfer {
 
     private Date transfer_time;
 
-    private String delete_status;
+    private String delete_status="no";
 
     public Integer getId() {
         return id;

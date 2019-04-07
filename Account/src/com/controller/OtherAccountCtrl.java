@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.models.entity.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,5 +52,28 @@ public class OtherAccountCtrl extends BaseCtrl  {
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("userList", userList);
 		return "OtherAccount";
+	}
+
+	@RequestMapping(value="/otherAccountAdd.do",method=RequestMethod.POST)
+	public String otherAccountAdd(Model model, Account account) {
+		int count = otherAccountService.insertAccount(account);
+		if(count>0){
+			model.addAttribute("addRet","账号添加成功");
+		}else{
+			model.addAttribute("addRet","账户已存在，添加失败");
+		}
+		return "forward:otherAccountIndex.do";
+	}
+	@RequestMapping(value="/otherAccountDel.do",method=RequestMethod.GET)
+	public String otherAccountDel(Model model, String account_code) {
+		return "forward:otherAccountIndex.do";
+	}
+	@RequestMapping(value="/otherAccountShowBeforeModify.do",method=RequestMethod.GET)
+	public String otherAccountShowBeforeModify(Model model, String account_code) {
+		return "forward:otherAccountIndex.do";
+	}
+	@RequestMapping(value="/otherAccounteModify.do",method=RequestMethod.POST)
+	public String otherAccounteModify(Model model, Account account) {
+		return "forward:otherAccountIndex.do";
 	}
 }

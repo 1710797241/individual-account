@@ -18,9 +18,9 @@ public class Account {
 
     private String trade_password;
 
-    private BigDecimal account_balance;
+    private BigDecimal account_balance= BigDecimal.valueOf(0);
 
-    private Integer account_score;
+    private Integer account_score=0;
 
     private Date last_login_time;
 
@@ -28,7 +28,7 @@ public class Account {
 
     private String is_admin;
 
-    private String delete_status;
+    private String delete_status="no";
 
     public Integer getId() {
         return id;
