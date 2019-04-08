@@ -28,15 +28,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 	<!--依据账号编号查询-->
 	<select id="selectAccountByCode" parameterType="java.lang.String" resultType="com.models.entity.Account">
-		select account_code,account_name,account_password, account_balance,account_score,user_identity,is_admin,delete_status
+		select account_code,account_name,account_password,trade_password, user_identity,is_admin
 		from account
 
 		<where>
 
 			delete_status="no"
-			<if test=" account_code!= null and account_code != ''">
 				and account_code = #{account_code}
-			</if>
 		</where>
 
 	</select>
@@ -77,8 +75,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--修改账号信息-->
 	<update id="modifyAccountByCode" parameterType="com.models.entity.Account" >
 		update account
-		set
-		<trim suffixOverrides="，">
+		<trim prefix="SET" suffixOverrides=",">
+
 			<if test="account_name != null and account_name !=''">
 				account_name = #{account_name},
 			</if>
@@ -86,14 +84,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				account_password = #{account_password},
 			</if>
 			<if test="trade_password != null and trade_password !=''">
-				account_name = #{account_name},
+				trade_password = #{trade_password},
 			</if>
 			<if test="is_admin != null and is_admin !=''">
-				account_name = #{account_name},
+				is_admin = #{is_admin},
 			</if>
 
 		</trim>
-		where account_code =  #{account_code}
+		<where>
+			<if test="account_code != null and account_code !=''">
+				account_code =  #{account_code}
+			</if>
+		</where>
 	</update>
 	<!--注销账户-->
 	<update id="deleteAccount" parameterType="com.models.entity.Account">

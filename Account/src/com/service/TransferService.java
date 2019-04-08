@@ -23,19 +23,23 @@ public class TransferService {
 //    转账
     public Integer transfer(TransferDto transferDto){
         Account account = new Account();
-        account.setAccount_code(transferDto.getTransferOutAccount());
+        account.setAccount_name(transferDto.getTransferOutAccount());
         account.setTrade_password(transferDto.getTradePass());
 //        交易密码的校验
         Integer tradeCheck = transferDao.checkTradePass(account);
+        System.out.println(tradeCheck+"****************************************/");
         if(tradeCheck>0){
             Transfer transfer = new Transfer();
             transfer.setAccount_code(transferDto.getTransferOutAccount());
             transfer.setThe_other_account_code(transferDto.getTransferInAccount());
             transfer.setTranfer_amount(BigDecimal.valueOf(Integer.parseInt(transferDto.getMoney())));
-
+            System.out.println(transfer.toString()+"-----------------------------------------------");
 //        修改交易双方金额
-            Integer inModify = transferDao.modifyOutAccount(transfer);
-            Integer outModify =transferDao.modifyInAccount(transfer);
+            account.setAccount_name(transfer.getAccount_code());
+            account.setAccount_balance(transfer.getTranfer_amount());
+            Integer inModify = transferDao.modifyOutAccount(account);
+            account.setAccount_name(transfer.getThe_other_account_code());
+            Integer outModify =transferDao.modifyInAccount(account);
 //        添加转账记录
                 String maxCode = transferDao.selectMaxCode();
                 String nextCode = GenerateCodeUtil.generateCode(maxCode);

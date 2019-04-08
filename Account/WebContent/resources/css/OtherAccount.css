@@ -86,7 +86,7 @@ color:grey;
 #account_show{
 	color:grey;
 }
-.modifyBtn,.rmBtn{
+.modifyBtn a,.rmBtn a{
     display: inline-block;
     line-height: 30px;
     width: 50px;

@@ -8,15 +8,23 @@
     <script src="${pageContext.request.contextPath }/resources/js/jquery-2.1.0.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/Base.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/Transfer.css">
+    <script type="text/javascript">
+        $(function () {
+            var msg = "${transferRet}";
+            if(msg!=""){
+                alert(msg)
+            }
+        })
+    </script>
 </head>
 <body>
 <div class="wholeMain">
     <div class="main">
         <div id="form">
             <span id="operation_title">转账</span>
-            <form action="">
+            <form action="transfer.do" method="post">
                 请输入转入账户：<input type="text" name="transferInAccount"><br>
-                请输入转出账户：<input name="transferOutAccount" disabled="disabled" type="text"><br>
+                请输入转出账户：<input name="transferOutAccount"  type="text"><br>
                 请输入交易密码：<input type="password" name="tradePass"><br>
                 请输入转账金额：<input type="text" name="money"><br>
                <div id="btn">

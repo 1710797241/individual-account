@@ -10,9 +10,9 @@ public interface TransferDao {
 
     public Integer checkTradePass(Account account);
 
-    public Integer modifyInAccount(Transfer transfer);
+    public Integer modifyInAccount(Account account);
 
-    public Integer modifyOutAccount(Transfer transfer);
+    public Integer modifyOutAccount(Account account);
 
     public Integer inserTransfer(Transfer transfer);
 

@@ -61,4 +61,23 @@ public class OtherAccountService {
 		return count;
 	}
 
+	@Transactional
+    public Account showBeforeModify(String code){
+            Account account = otherAccountDao.selectAccountByCode(code);
+            return account;
+    }
+
+    @Transactional
+    public Integer modifyAccount(Account account){
+
+        Integer count = otherAccountDao.modifyAccountByCode(account);
+        return count;
+    }
+    @Transactional
+    public Integer delAccount(String code){
+
+        Integer count = otherAccountDao.deleteAccount(code);
+
+        return count;
+    }
 }

@@ -105,7 +105,7 @@
                 </tr>
                 <tr>
                 <td>是否为管理员：</td>
-                <td><input type="radio" name="is_admin" id="" checked="checked" value="yes">是
+                <td><input type="radio" name="is_admin"  checked="checked" value="yes">是
                     <input type="radio" name="is_admin" value="no" >否</td>
             </tr>
                 <tr>
@@ -160,8 +160,8 @@
 	                        <td>${account.account_score}</td>
 	                        <td>${account.user_identity}</td>
 	                        <td>${account.is_admin}</td>
-	                        <td><span class="modifyBtn"><a href="otherAccountShowBeforeModify.do?account_code=${account.account_code}">修改</a> </span></td>
-                             <td><span class="rmBtn"><a href="otherAccountDel.do?account_code=${account.account_code}">注销</a></span></td>
+	                        <td><a class="modifyBtn" href="otherAccountShowBeforeModify.do?account_code=${account.account_code}">修改</a> </td>
+                             <td><a class="rmBtn" href="otherAccountDel.do?account_code=${account.account_code}">注销</a></td>
 
                    		 </tr>
                    	</c:forEach>

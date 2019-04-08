@@ -103,4 +103,19 @@ public class Transfer {
     public void setDelete_status(String delete_status) {
         this.delete_status = delete_status == null ? null : delete_status.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Transfer{" +
+                "transfer_code='" + transfer_code + '\'' +
+                ", transfer_site='" + transfer_site + '\'' +
+                ", the_other_account_code='" + the_other_account_code + '\'' +
+                ", type='" + type + '\'' +
+                ", fund_flow='" + fund_flow + '\'' +
+                ", account_code='" + account_code + '\'' +
+                ", tranfer_amount=" + tranfer_amount +
+                ", transfer_time=" + transfer_time +
+                ", delete_status='" + delete_status + '\'' +
+                '}';
+    }
 }

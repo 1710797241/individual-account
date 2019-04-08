@@ -68,12 +68,23 @@ public class OtherAccountCtrl extends BaseCtrl  {
 	public String otherAccountDel(Model model, String account_code) {
 		return "forward:otherAccountIndex.do";
 	}
+	//修改前展示
 	@RequestMapping(value="/otherAccountShowBeforeModify.do",method=RequestMethod.GET)
 	public String otherAccountShowBeforeModify(Model model, String account_code) {
-		return "forward:otherAccountIndex.do";
+		Account account = otherAccountService.showBeforeModify(account_code);
+		model.addAttribute("account",account);
+		return "ModifyOtherAccount";
 	}
-	@RequestMapping(value="/otherAccounteModify.do",method=RequestMethod.POST)
+	@RequestMapping(value="/otherAccountModify.do",method=RequestMethod.POST)
+
 	public String otherAccounteModify(Model model, Account account) {
+		Integer count = otherAccountService.modifyAccount(account);
+
+		if(count>0){
+			model.addAttribute("addRet","修改成功");
+		}else{
+			model.addAttribute("addRet","修改失败");
+		}
 		return "forward:otherAccountIndex.do";
 	}
 }
