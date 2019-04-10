@@ -22,19 +22,24 @@
     </script>
 </head>
 <body>
-
-
+<jsp:include page="banner.jsp"></jsp:include>
 <div class="wholeMain">
     <div class="main" >
-        <form action="otherAccountModify.do" method="POST">
+        <form action="otherAccountModify.do" method="post">
 
                         <table style="width: 300px;margin: auto auto;">
-                            <input type="text" value="${account.account_code}" name="account_code" style="display: none;">
+                            <tr style="display: none;"><td colspan="2"><input type="text" value="${account.account_code}" name="account_code" ></td></tr>
                             <tr>
                                 <td> 账号所属人:</td>
                                 <td>
-                                    <input type="text" id="user_identity" name="user_identity" value="${account.user_identity}">
+						<select id="user_identity" name="user_identity">
+                            <c:forEach items="${userList}" var="user" varStatus="status">
 
+                            	<option id="${status.index}" 
+                            	<c:if test="${account.user_identity== user.user_identity}">selected="selected"</c:if>
+                            	 value="${user.user_identity }">${user.user_identity}</option>
+                            </c:forEach>
+                        </select>
 
                                 </td>
                             </tr>
@@ -50,6 +55,10 @@
                                 <td> 交易密码：</td>
                                 <td><input type="password" name="trade_password" value="${account.trade_password}" /></td>
                             </tr>
+                            <tr>
+                    		<td> 邮箱：</td>
+                    			<td><input type="text" id="account_email" name="account_email" value="${account.account_email}" /><span id="email_notice" style="display:none;"></span></td>
+                			</tr>
                             <tr>
                                 <td>是否为管理员：</td>
                                 <td><input type="radio" name="is_admin"  <c:if test="${account.is_admin == 'yes'}"> checked="checked" </c:if> value="yes">是

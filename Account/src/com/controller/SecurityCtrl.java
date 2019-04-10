@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -24,55 +25,59 @@ public class SecurityCtrl extends BaseCtrl  {
 		return "Security";
 	}
 	@RequestMapping(value="/securityConfirm.do",method=RequestMethod.GET)
-	public String securityModifyPass(Model model) {
-
-	model.addAttribute("email","1710797241@qq.com");
-
+	public String securityModifyPass(HttpSession session,String comfirmType) {
+		session.setAttribute("comfirmType",comfirmType);
 		return "SendConfirmMail";
 	}
 	@RequestMapping(value="/modifyPassIndex.do",method=RequestMethod.GET)
-	public String modifyPassIndex(HttpSession session,String token) {
+	public String modifyPassIndex(HttpSession session,String token,String comfirmType) {
 		session.setAttribute("token",token);
+		session.setAttribute("comfirmType",comfirmType);
 		return "modifyPass";
 	}
-	@RequestMapping(value="/modifyPass.do",method=RequestMethod.POST)
-	public String modifyPass(HttpSession session, @Valid Account account,Model model) {
-		String resetPassToken =(String) session.getAttribute("resetPassToken");
-		String token =(String) session.getAttribute("token");
-		System.out.println(resetPassToken+":"+token+"----------------");
-		if(resetPassToken.equals(token)){
-			System.out.println(true+"---------------------------------------------------");
-			int count = accountService.modifyPass(account);
-			if(count>0){
-				model.addAttribute("modifyResult","修改成功");
-			}else {
-				model.addAttribute("modifyResult","修改失败");
-			}
+	//修改登录密码
+	@RequestMapping(value="/modifyPass.do")
+	public String modifyPass(String comfirmType,RedirectAttributes attr,HttpSession session,  Account account,Model model) {
+		try {
+			String resetPassToken =(String) session.getAttribute("resetPassToken");
+			String token =(String) session.getAttribute("token");
+			
+			if(resetPassToken.equals(token)){
+				Integer count = null;
+				if(comfirmType.equals("account_pass")) {
+					Account acc = (Account)session.getAttribute("currAcc");
+					
+					account.setAccount_code(acc.getAccount_code());
+					count = accountService.modifyPass(account);
+					if(count>0) {
+						acc.setAccount_password(account.getAccount_password());
+						session.setAttribute("currAcc", acc);
+					}
+				}
+				if(comfirmType.equals("trade_pass")) {
+					Account acc = (Account)session.getAttribute("currAcc");
+					account.setAccount_code(acc.getAccount_code());
+					account.setTrade_password(account.getAccount_password());
+					count = accountService.modifyTradePass(account);
+					if(count>0) {
+						acc.setTrade_password(account.getTrade_password());
+						session.setAttribute("currAcc", acc);
+					}
+				}
+				 
+				if(count>0){
+					attr.addFlashAttribute("modifyResult","修改成功");
+				}else {
+					attr.addFlashAttribute("modifyResult","修改失败");
+				}
 
-		}else {
-			model.addAttribute("modifyResult","修改失败");
-			System.out.println(false+"---------------------------------------------------");
-		}
-		return "modifyPass";
-	}
-	@RequestMapping(value="/modifyTradePass.do",method=RequestMethod.POST)
-	public String modifyTradePass(HttpSession session, @Valid Account account,Model model) {
-		String resetPassToken =(String) session.getAttribute("resetPassToken");
-		String token =(String) session.getAttribute("token");
-		System.out.println(resetPassToken+":"+token+"----------------");
-		if(resetPassToken.equals(token)){
-			System.out.println(true+"---------------------------------------------------");
-			int count = accountService.modifyTradePass(account);
-			if(count>0){
-				model.addAttribute("modifyResult","修改成功");
 			}else {
-				model.addAttribute("modifyResult","修改失败");
+				attr.addFlashAttribute("modifyResult","修改失败");
 			}
-
-		}else {
-			model.addAttribute("modifyResult","修改失败");
-			System.out.println(false+"---------------------------------------------------");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
-		return "modifyTradePass";
+		return "redirect:securityIndex.do";
 	}
+	
 }

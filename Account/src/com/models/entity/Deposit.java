@@ -7,7 +7,6 @@ public class Deposit {
 
     private String deposit_code;
 
-    private String deposit_site;
 
     private String type;
 
@@ -37,13 +36,6 @@ public class Deposit {
         this.deposit_code = deposit_code == null ? null : deposit_code.trim();
     }
 
-    public String getDeposit_site() {
-        return deposit_site;
-    }
-
-    public void setDeposit_site(String deposit_site) {
-        this.deposit_site = deposit_site == null ? null : deposit_site.trim();
-    }
 
     public String getType() {
         return type;

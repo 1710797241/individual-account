@@ -79,16 +79,5 @@ public class BaseCtrl {
         ret.setResult(map);
         return ret;
     }
-    @ExceptionHandler(NullPointerException.class)
-    @ResponseBody
-    public Result NullPointerrMsg(NullPointerException exception, HttpServletResponse response) {
-        Result ret = new Result();
-        Map<String, String> map = new HashMap<>();
-        if(exception !=null){
-            ret.setStatus(1000, "请输入相关数据");
-            ret.setResult(map);
-        }
-
-        return ret;
-    }
+    
 }

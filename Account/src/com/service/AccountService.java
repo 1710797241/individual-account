@@ -10,6 +10,13 @@ public class AccountService {
 
     @Autowired
     private AccountDao accountDao;
+    
+    public Account login(Account account) {
+    	
+    	return  accountDao.login(account);
+    }
+    
+    
 //    修改账户密码
     public int modifyPass(Account account){
         int count = accountDao.modifyPass(account);

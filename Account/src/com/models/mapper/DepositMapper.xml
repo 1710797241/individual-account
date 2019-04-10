@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.models.dao.DepositDao">
+
+<!--校验交易密码-->
+	<select id="checkTradePass" parameterType="com.models.entity.Account" resultType="java.lang.Integer">
+		select count(1)
+		from account
+		where account_name=#{account_name} and trade_password=#{trade_password}
+	</select>
+
+	<!--修改账户金额-->
+	<update id="updateAccountBalance" parameterType="com.models.entity.Account">
+		update account
+		set account_balance =
+			#{account_balance}
+		where account_name =  #{account_name}
+	</update>
+<select id="selectMaxCode" parameterType="java.lang.String" resultType="java.lang.String">
+ 		select max(withdraw_code)
+ 		from withdraw
+ 		where
+ 		withdraw_code like "%"#{currCode}"%"
+
+ </select>
+	<!-- 添加取款记录 -->
+	
+	<insert id="insertWithdraw" parameterType="com.models.entity.Withdraw">
+			insert into withdraw
+			(
+			withdraw_code,
+			type,
+			fund_flow,
+			account_code,
+			withdraw_amount,
+			withdraw_time,
+			delete_status
+			)
+			values(
+			#{withdraw_code},
+			#{type},
+			#{fund_flow},
+			#{account_code},
+			#{withdraw_amount},
+			#{withdraw_time},
+			#{delete_status}
+			
+			)
+			
+			
+			
+	</insert>
+
+</mapper>

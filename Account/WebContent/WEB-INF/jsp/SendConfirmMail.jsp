@@ -10,12 +10,14 @@
 
 </head>
 <body>
+<jsp:include page="banner.jsp"></jsp:include>
 <div class="wholeMain">
     <div class="main" id="change">
         <div class="changeItem">
             <form action="sendEmail.do" method="post">
+             <input style="display:none;" type="text" name="comfirmType" value="${comfirmType }"/>
                 <span class="title">邮箱验证：</span>
-                <input type="text" name="email" value="${email}"><br>
+                <input type="text" name="email" value="${currAcc.account_email}"><br>
                 <input type="submit" style="cursor: pointer"  value="验证"><br>
             </form>
         </div>

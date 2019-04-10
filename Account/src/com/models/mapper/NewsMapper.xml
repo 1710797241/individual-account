@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.models.dao.NewsDao">
+<select id="selectMaxCurrDayCode" parameterType="java.lang.String" resultType="java.lang.String">
+		select max(new_code)
+		from news
+		where
+		new_code like "%"#{currCode}"%"
+	</select>
+	<insert id="insertNews" parameterType="com.models.entity.News">
+		insert into news( new_code,news_title,news_context,
+		news_publisher,news_datetime,delete_status)
+		values(
+		#{new_code},
+		#{news_title},
+		#{news_context},
+		#{news_publisher},
+		#{news_datetime},
+		#{delete_status}
+		
+		)
+	</insert>
+	<update id="deleteNews" parameterType="java.lang.String">
+		update news
+		set 
+			delete_status = "yes"
+			
+		<where>
+			new_code = #{new_code}
+		</where>
+	</update>
+	
+	<select id="selectByMap" parameterType="java.util.Map" resultType="com.models.entity.News">
+		select  new_code,news_title,news_context,
+		news_datetime,u.user_name news_publisher
+		from news n,user u
+		
+		<where>
+			n.delete_status = "no" and n.news_publisher=u.user_identity
+			<if test="newsCode!=null and newsCode !=''">
+				and new_code like "%"#{newsCode}"%"
+			</if>
+			<if test="publisher_name!=null and publisher_name !=''">
+				and u.user_name like "%"#{publisher_name}"%"
+			</if>
+			
+		</where>
+	</select>
+	<select id="selectByCode" parameterType="java.lang.String" resultType="com.models.entity.News">
+		select  new_code,news_title,news_context
+		from news n
+		
+		<where>
+			n.delete_status = "no" 
+				and n.new_code = #{newsCode}
+			
+			
+		</where>
+	</select>
+	<update id="updateNews" parameterType="com.models.entity.News">
+		update news
+		set 
+		<trim suffixOverrides=",">
+			<if test="news_title!=null and   news_title!=''">
+				news_title=#{news_title},
+			</if>
+		<if test="news_context!=null and   news_context!=''">
+			news_context=#{news_context},
+		</if>
+		</trim>
+			
+		<where>
+			new_code = #{new_code}
+		</where>
+	</update>
+</mapper>

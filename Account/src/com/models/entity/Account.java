@@ -7,9 +7,9 @@ import java.util.Date;
 
 public class Account {
     private Integer id;
-    @NotEmpty(message = "请输入正确的账号")
+  
     private String account_code;
-
+    @NotEmpty(message = "请输入正确的账号")
 
     private String account_name;
     @NotEmpty(message = "请输入正确的密码")
@@ -25,8 +25,14 @@ public class Account {
     private Date last_login_time;
 
     private String user_identity;
+    
+    private String account_email;
+    
+    private String user_name;
 
     private String is_admin;
+    
+    private Date create_time;
 
     private String delete_status="no";
 
@@ -101,8 +107,18 @@ public class Account {
     public void setUser_identity(String user_identity) {
         this.user_identity = user_identity == null ? null : user_identity.trim();
     }
+    
+    
 
-    public String getIs_admin() {
+    public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getIs_admin() {
         return is_admin;
     }
 
@@ -110,11 +126,29 @@ public class Account {
         this.is_admin = is_admin == null ? null : is_admin.trim();
     }
 
-    public String getDelete_status() {
+    
+    public Date getCreate_time() {
+		return create_time;
+	}
+
+	public void setCreate_time(Date create_time) {
+		this.create_time = create_time;
+	}
+
+	public String getDelete_status() {
         return delete_status;
     }
 
     public void setDelete_status(String delete_status) {
         this.delete_status = delete_status == null ? null : delete_status.trim();
     }
+
+	public String getAccount_email() {
+		return account_email;
+	}
+
+	public void setAccount_email(String account_email) {
+		this.account_email = account_email;
+	}
+    
 }

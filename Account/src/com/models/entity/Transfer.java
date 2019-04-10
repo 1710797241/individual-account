@@ -8,7 +8,6 @@ public class Transfer {
 
     private String transfer_code;
 
-    private String transfer_site;
 
     private String the_other_account_code;
 
@@ -40,13 +39,6 @@ public class Transfer {
         this.transfer_code = transfer_code == null ? null : transfer_code.trim();
     }
 
-    public String getTransfer_site() {
-        return transfer_site;
-    }
-
-    public void setTransfer_site(String transfer_site) {
-        this.transfer_site = transfer_site == null ? null : transfer_site.trim();
-    }
 
     public String getThe_other_account_code() {
         return the_other_account_code;
@@ -104,18 +96,4 @@ public class Transfer {
         this.delete_status = delete_status == null ? null : delete_status.trim();
     }
 
-    @Override
-    public String toString() {
-        return "Transfer{" +
-                "transfer_code='" + transfer_code + '\'' +
-                ", transfer_site='" + transfer_site + '\'' +
-                ", the_other_account_code='" + the_other_account_code + '\'' +
-                ", type='" + type + '\'' +
-                ", fund_flow='" + fund_flow + '\'' +
-                ", account_code='" + account_code + '\'' +
-                ", tranfer_amount=" + tranfer_amount +
-                ", transfer_time=" + transfer_time +
-                ", delete_status='" + delete_status + '\'' +
-                '}';
-    }
 }

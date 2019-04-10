@@ -23,7 +23,7 @@ public class User {
 
     private String user_label;
 
-    private String delete_status;
+    private String delete_status="no";
 
     public Integer getId() {
         return id;

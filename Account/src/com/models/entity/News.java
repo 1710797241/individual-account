@@ -2,6 +2,10 @@ package com.models.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class News {
     private Integer id;
 
@@ -13,7 +17,7 @@ public class News {
 
     private Date news_datetime;
 
-    private String delete_status;
+    private String delete_status="no";
 
     private String news_context;
 

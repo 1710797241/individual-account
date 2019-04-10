@@ -1,0 +1,99 @@
+body,div,h2,hr,p,span,img{
+	margin: 0px;
+	padding: 0px;
+}
+.register_head{
+	width: 100%;
+	height: 100px;
+	/*border: 1px solid black;*/
+}
+.register_head .register_logo{
+	width: 400px;
+	height: 100%;
+	/*border: 1px solid black;*/
+	float: left;
+}
+.register_head .register_logo h2{
+	font-size: 30px;
+	font-family: "华文楷体";
+	font-weight: bold;
+	margin-top: 10px;
+	text-indent: 1em;
+}
+.register_head span{
+	display: inline-block;
+	float: right;
+	/*border: 1px solid black;*/
+	margin-right: 60px;
+	margin-top: 50px;
+	padding: 10px;
+	font-size: 20px;
+}
+.register_head span a{
+	text-decoration: none;
+	color: #ff0033;
+}
+
+/*-------------------------------------------------*/
+
+.register_content_bg{
+	width: 100%;
+	height: 650px;
+	/*border: 1px solid black;*/
+}
+.register_h{
+	width: 300px;
+	height: 300px;
+	float: left;
+	margin-top: 30px;
+	margin-left: 150px;
+	text-align: center;
+	/*border: 1px solid black;*/
+}
+.register_h a{
+	text-decoration: none;
+	color: black;
+}
+.register_content{
+	width: 500px;
+	height: 600px;
+	float: right;
+	line-height: 30px;
+	margin-top: 30px;
+	margin-right: 200px;
+	/*border: 1px solid grey;*/
+}
+h3{
+	/*text-align: center;*/
+	margin-left: 200px;
+}
+.register_content p{
+	margin-left: 45px;
+}
+.register_content img{
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+}
+.register_content .ipt{
+	width: 250px;
+	height: 25px;
+	margin: 6px;
+}
+.register_content .ipt1{
+	width: 120px;
+	height: 25px;
+	margin: 6px;
+}
+.register_content .btn{
+	width: 280px;
+	height: 35px;
+	margin: 10px;
+	background: #FF0033;
+	color: white;
+	border: 0px;
+	font-size: 20px;
+}
+.register_content .checkCode{
+	font-size: 12px;
+}

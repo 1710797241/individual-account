@@ -7,11 +7,10 @@ public class Withdraw {
 
     private String withdraw_code;
 
-    private String withdraw_site;
 
-    private String type;
+    private String type="withdraw";
 
-    private String fund_flow;
+    private String fund_flow="pay";
 
     private String account_code;
 
@@ -37,13 +36,6 @@ public class Withdraw {
         this.withdraw_code = withdraw_code == null ? null : withdraw_code.trim();
     }
 
-    public String getWithdraw_site() {
-        return withdraw_site;
-    }
-
-    public void setWithdraw_site(String withdraw_site) {
-        this.withdraw_site = withdraw_site == null ? null : withdraw_site.trim();
-    }
 
     public String getType() {
         return type;

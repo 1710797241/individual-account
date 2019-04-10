@@ -15,26 +15,32 @@
                 alert(mailMsg);
 
             }
+            var modifyResult = "${modifyResult}";
+            if(modifyResult != ""){
+                alert(modifyResult);
+
+            }
         })
     </script>
 </head>
 <body>
+<jsp:include page="banner.jsp"></jsp:include>
 <div class="wholeMain">
     <div class="main" id="change">
         <div class="changeItem">
             <span class="fixleft">邮箱：</span>
-            <span class="content">18888@qq.com</span>
-            <span class="fixright"><span>已绑定</span><a href="#">修改</a></span>
+            <span class="content">${currAcc.account_email }</span>
+            <span class="fixright"><span>已绑定</span></span>
         </div>
         <div class="changeItem">
             <span class="fixleft">密码：</span>
-            <span class="content"><input type="password" disabled="disabled"></span>
-            <span>密码强度：<span id="passLevel" style="display: inline-block;width: 16px;height: 14px;background-color: gold"></span></span><span class="fixright"><a href="securityConfirm.do">修改</a></span>
+            <span class="content"><input type="password" value="${currAcc.account_password }" disabled="disabled"></span>
+            <span class="fixright"><a href="securityConfirm.do?comfirmType=account_pass">修改</a></span>
         </div>
         <div class="changeItem">
             <span class="fixleft">交易密码：</span>
-            <span class="content"><input type="password" disabled="disabled"></span>
-            <span><span class="fixright"><a href="">修改</a></span></span>
+            <span class="content"><input type="password" value="${currAcc.trade_password }" disabled="disabled"></span>
+            <span><span class="fixright"><a href="securityConfirm.do?comfirmType=trade_pass">修改</a></span></span>
 
         </div>
     </div>

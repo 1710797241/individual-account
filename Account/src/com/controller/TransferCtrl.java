@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,25 +22,25 @@ public class TransferCtrl extends BaseCtrl  {
 	@Autowired
 	private TransferService transferService;
 	
-	@RequestMapping(value="/transferIndex.do",method=RequestMethod.GET)
+	@RequestMapping(value="/transferIndex.do")
 	public String otherIndex(Model model) {
 		
 		
 		
 		return "Transfer";
 	}
-	@RequestMapping(value="/transfer.do",method=RequestMethod.POST)
-	public String otherIndex(Model model, TransferDto transferDto) {
+	@RequestMapping(value="/transfer.do")
+	public String otherIndex(RedirectAttributes attr, TransferDto transferDto) {
 		Integer count = transferService.transfer(transferDto);
 		if (count>0){
-			model.addAttribute("transferRet","转账成功");
+			attr.addFlashAttribute("transferRet","转账成功");
 		}else{
-			model.addAttribute("transferRet","转账失败");
+			attr.addFlashAttribute("transferRet","交易密码错误，转账失败");
 		}
 
 		return "redirect:transferIndex.do";
 	}
-	@RequestMapping(value="/selectTransfer.do",method=RequestMethod.GET)
+	@RequestMapping(value="/selectTransfer.do")
 	public String selectTransfer(Model model,@RequestParam(value="pageNum",defaultValue="1") int pageNum,
 								 @RequestParam(value="pageSize",defaultValue="8") int pageSize,
 								 @RequestParam(value="startTime")String startTime,

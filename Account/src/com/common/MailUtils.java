@@ -56,10 +56,7 @@ public class MailUtils {
 		//html代码部分
 		MimeBodyPart htmlPart = new MimeBodyPart();
 
-		MimeBodyPart attach1 = new MimeBodyPart();
-		MimeBodyPart attch2 = new MimeBodyPart();
-		msgMultipart.addBodyPart(attach1);
-		msgMultipart.addBodyPart(attch2);
+		
 		String token = null;
 		try {
 			String uuid = UUID.randomUUID().toString();
@@ -71,18 +68,8 @@ public class MailUtils {
 			e.printStackTrace();
 		}
 		String htmlBody = "<div style=\"width:100%\"><div style=\"padding:50px;\"><div style=\"margin:auto atuo;text-align:center;\"><span style=\"color:red;font-size:18px;font-weight:bold;\">你忘记了密码？</span></div>" +
-				"<div style=\"text-align:center;\"><a href=\"http://localhost:8080/"+url+"?token="+token+"\">重置密码</a></div>" +
+				"<div style=\"text-align:center;\"><a href=\"http://localhost:8080/"+url+"&token="+token+"\">重置密码</a></div>" +
 				"<div><img style=\"width:1000px;\" src=\"\"></div></div></div>";
-
-		File file = new File("D:\\Amusement\\MyMultimedia\\Picture\\beauty\\2.jpg");
-		File file1 = new File("D:\\Amusement\\MyMultimedia\\Picture\\beauty\\3.jpg");
-		DataSource ds = new FileDataSource(file);
-		attach1.setDataHandler(new DataHandler(ds));
-		attach1.setFileName(file.getName());
-
-		DataSource ds1 = new FileDataSource(file1);
-		attch2.setDataHandler(new DataHandler(ds1));
-		attch2.setFileName(file.getName());
 		htmlPart.setContent(htmlBody,"text/html;charset=utf-8");
 		//正文添加图片和html代码
 		bodyMultipart.addBodyPart(htmlPart);
@@ -96,8 +83,6 @@ public class MailUtils {
 
 		message.setRecipient(RecipientType.TO, new InternetAddress(email)); // 设置发送方式与接收者
 
-
-//		message.setContent(emailMsg, "text/html;charset=utf-8");
 		// 3.创建 Transport用于将邮件发送
 		Transport.send(message);
 		return token;
